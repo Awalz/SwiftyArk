@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1607F47B1F6F55B3006B6751 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F47A1F6F55B3006B6751 /* Peer.swift */; };
+		1607F47D1F6F5EAC006B6751 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F47C1F6F5EAC006B6751 /* Transactions.swift */; };
+		1607F47F1F6F6E89006B6751 /* Voters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F47E1F6F6E89006B6751 /* Voters.swift */; };
+		1607F4811F6F73FE006B6751 /* Forging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4801F6F73FE006B6751 /* Forging.swift */; };
+		1607F4831F6F7870006B6751 /* PeerVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4821F6F7870006B6751 /* PeerVersion.swift */; };
+		1607F4851F6F7D4C006B6751 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4841F6F7D4C006B6751 /* Ticker.swift */; };
+		1646DEBB1F7028260021C619 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1646DEBA1F7028260021C619 /* Status.swift */; };
+		16CC0F2A1F6DE3FC00BD1052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */; };
+		16CC0F2C1F6DE3FC00BD1052 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F2B1F6DE3FC00BD1052 /* ViewController.swift */; };
+		16CC0F2F1F6DE3FC00BD1052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC0F2D1F6DE3FC00BD1052 /* Main.storyboard */; };
+		16CC0F311F6DE3FC00BD1052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CC0F301F6DE3FC00BD1052 /* Assets.xcassets */; };
+		16CC0F341F6DE3FC00BD1052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC0F321F6DE3FC00BD1052 /* LaunchScreen.storyboard */; };
+		16CC0F3C1F6DE41400BD1052 /* ArkManager+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F3B1F6DE41400BD1052 /* ArkManager+Api.swift */; };
+		16CC0F3E1F6DE4C100BD1052 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F3D1F6DE4C100BD1052 /* Delegate.swift */; };
+		16CC0F451F6E187500BD1052 /* ArkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F441F6E187500BD1052 /* ArkConstants.swift */; };
+		16CC0F471F6E2B3D00BD1052 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F461F6E2B3D00BD1052 /* Network.swift */; };
+		16CC0F491F6E2E8000BD1052 /* ArkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F481F6E2E8000BD1052 /* ArkManager.swift */; };
+		16CC0F4B1F6EEDC600BD1052 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F4A1F6EEDC600BD1052 /* Account.swift */; };
+		16CC0F4F1F6F22B400BD1052 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F4E1F6F22B400BD1052 /* Block.swift */; };
+		16CC0F511F6F261400BD1052 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F501F6F261400BD1052 /* Settings.swift */; };
+		16CC0F531F6F34A100BD1052 /* ArkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F521F6F34A100BD1052 /* ArkUtilities.swift */; };
+		16FBA1E31F7030540011D1B9 /* ArkManager+Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E21F7030540011D1B9 /* ArkManager+Accounts.swift */; };
+		16FBA1E51F7030E40011D1B9 /* ArkManager+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E41F7030E40011D1B9 /* ArkManager+Blocks.swift */; };
+		16FBA1E71F7031130011D1B9 /* ArkManager+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E61F7031130011D1B9 /* ArkManager+Delegates.swift */; };
+		16FBA1E91F7031560011D1B9 /* ArkManager+Peers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E81F7031560011D1B9 /* ArkManager+Peers.swift */; };
+		16FBA1EB1F7031820011D1B9 /* ArkManager+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1EA1F7031820011D1B9 /* ArkManager+Status.swift */; };
+		16FBA1ED1F7031C10011D1B9 /* ArkManager+Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1EC1F7031C10011D1B9 /* ArkManager+Ticker.swift */; };
+		16FBA1EF1F7031D70011D1B9 /* ArkManager+Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1EE1F7031D70011D1B9 /* ArkManager+Transactions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1607F47A1F6F55B3006B6751 /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		1607F47C1F6F5EAC006B6751 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		1607F47E1F6F6E89006B6751 /* Voters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voters.swift; sourceTree = "<group>"; };
+		1607F4801F6F73FE006B6751 /* Forging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forging.swift; sourceTree = "<group>"; };
+		1607F4821F6F7870006B6751 /* PeerVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerVersion.swift; sourceTree = "<group>"; };
+		1607F4841F6F7D4C006B6751 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		1646DEBA1F7028260021C619 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		16CC0F261F6DE3FC00BD1052 /* SwiftyArk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyArk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		16CC0F2B1F6DE3FC00BD1052 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16CC0F2E1F6DE3FC00BD1052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16CC0F301F6DE3FC00BD1052 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16CC0F331F6DE3FC00BD1052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		16CC0F351F6DE3FC00BD1052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16CC0F3B1F6DE41400BD1052 /* ArkManager+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Api.swift"; sourceTree = "<group>"; };
+		16CC0F3D1F6DE4C100BD1052 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		16CC0F441F6E187500BD1052 /* ArkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkConstants.swift; sourceTree = "<group>"; };
+		16CC0F461F6E2B3D00BD1052 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		16CC0F481F6E2E8000BD1052 /* ArkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkManager.swift; sourceTree = "<group>"; };
+		16CC0F4A1F6EEDC600BD1052 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		16CC0F4E1F6F22B400BD1052 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		16CC0F501F6F261400BD1052 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		16CC0F521F6F34A100BD1052 /* ArkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkUtilities.swift; sourceTree = "<group>"; };
+		16FBA1E21F7030540011D1B9 /* ArkManager+Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Accounts.swift"; sourceTree = "<group>"; };
+		16FBA1E41F7030E40011D1B9 /* ArkManager+Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Blocks.swift"; sourceTree = "<group>"; };
+		16FBA1E61F7031130011D1B9 /* ArkManager+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Delegates.swift"; sourceTree = "<group>"; };
+		16FBA1E81F7031560011D1B9 /* ArkManager+Peers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Peers.swift"; sourceTree = "<group>"; };
+		16FBA1EA1F7031820011D1B9 /* ArkManager+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Status.swift"; sourceTree = "<group>"; };
+		16FBA1EC1F7031C10011D1B9 /* ArkManager+Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Ticker.swift"; sourceTree = "<group>"; };
+		16FBA1EE1F7031D70011D1B9 /* ArkManager+Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+Transactions.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16CC0F231F6DE3FC00BD1052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16CC0F1D1F6DE3FC00BD1052 = {
+			isa = PBXGroup;
+			children = (
+				16CC0F281F6DE3FC00BD1052 /* SwiftyArk */,
+				16CC0F271F6DE3FC00BD1052 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16CC0F271F6DE3FC00BD1052 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16CC0F261F6DE3FC00BD1052 /* SwiftyArk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16CC0F281F6DE3FC00BD1052 /* SwiftyArk */ = {
+			isa = PBXGroup;
+			children = (
+				16CC0F3F1F6E17B700BD1052 /* Source */,
+				16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */,
+				16CC0F2B1F6DE3FC00BD1052 /* ViewController.swift */,
+				16CC0F2D1F6DE3FC00BD1052 /* Main.storyboard */,
+				16CC0F301F6DE3FC00BD1052 /* Assets.xcassets */,
+				16CC0F321F6DE3FC00BD1052 /* LaunchScreen.storyboard */,
+				16CC0F351F6DE3FC00BD1052 /* Info.plist */,
+			);
+			path = SwiftyArk;
+			sourceTree = "<group>";
+		};
+		16CC0F3F1F6E17B700BD1052 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				16CC0F401F6E17C500BD1052 /* API */,
+				16CC0F411F6E17CE00BD1052 /* Models */,
+				16FBA1E11F7030240011D1B9 /* Utilities */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		16CC0F401F6E17C500BD1052 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				16CC0F481F6E2E8000BD1052 /* ArkManager.swift */,
+				16FBA1E21F7030540011D1B9 /* ArkManager+Accounts.swift */,
+				16FBA1E41F7030E40011D1B9 /* ArkManager+Blocks.swift */,
+				16FBA1E61F7031130011D1B9 /* ArkManager+Delegates.swift */,
+				16FBA1E81F7031560011D1B9 /* ArkManager+Peers.swift */,
+				16FBA1EA1F7031820011D1B9 /* ArkManager+Status.swift */,
+				16FBA1EC1F7031C10011D1B9 /* ArkManager+Ticker.swift */,
+				16FBA1EE1F7031D70011D1B9 /* ArkManager+Transactions.swift */,
+				16CC0F3B1F6DE41400BD1052 /* ArkManager+Api.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		16CC0F411F6E17CE00BD1052 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				16CC0F4A1F6EEDC600BD1052 /* Account.swift */,
+				16CC0F4E1F6F22B400BD1052 /* Block.swift */,
+				16CC0F3D1F6DE4C100BD1052 /* Delegate.swift */,
+				1607F4801F6F73FE006B6751 /* Forging.swift */,
+				16CC0F461F6E2B3D00BD1052 /* Network.swift */,
+				1607F47A1F6F55B3006B6751 /* Peer.swift */,
+				1607F4821F6F7870006B6751 /* PeerVersion.swift */,
+				16CC0F501F6F261400BD1052 /* Settings.swift */,
+				1646DEBA1F7028260021C619 /* Status.swift */,
+				1607F4841F6F7D4C006B6751 /* Ticker.swift */,
+				1607F47C1F6F5EAC006B6751 /* Transactions.swift */,
+				1607F47E1F6F6E89006B6751 /* Voters.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		16FBA1E11F7030240011D1B9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				16CC0F441F6E187500BD1052 /* ArkConstants.swift */,
+				16CC0F521F6F34A100BD1052 /* ArkUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16CC0F251F6DE3FC00BD1052 /* SwiftyArk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16CC0F381F6DE3FC00BD1052 /* Build configuration list for PBXNativeTarget "SwiftyArk" */;
+			buildPhases = (
+				16CC0F221F6DE3FC00BD1052 /* Sources */,
+				16CC0F231F6DE3FC00BD1052 /* Frameworks */,
+				16CC0F241F6DE3FC00BD1052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyArk;
+			productName = SwiftyArk;
+			productReference = 16CC0F261F6DE3FC00BD1052 /* SwiftyArk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16CC0F1E1F6DE3FC00BD1052 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Walzy;
+				TargetAttributes = {
+					16CC0F251F6DE3FC00BD1052 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 16CC0F211F6DE3FC00BD1052 /* Build configuration list for PBXProject "SwiftyArk" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16CC0F1D1F6DE3FC00BD1052;
+			productRefGroup = 16CC0F271F6DE3FC00BD1052 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16CC0F251F6DE3FC00BD1052 /* SwiftyArk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16CC0F241F6DE3FC00BD1052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16CC0F341F6DE3FC00BD1052 /* LaunchScreen.storyboard in Resources */,
+				16CC0F311F6DE3FC00BD1052 /* Assets.xcassets in Resources */,
+				16CC0F2F1F6DE3FC00BD1052 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16CC0F221F6DE3FC00BD1052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16CC0F531F6F34A100BD1052 /* ArkUtilities.swift in Sources */,
+				1607F47D1F6F5EAC006B6751 /* Transactions.swift in Sources */,
+				1607F4811F6F73FE006B6751 /* Forging.swift in Sources */,
+				16CC0F3E1F6DE4C100BD1052 /* Delegate.swift in Sources */,
+				16FBA1EF1F7031D70011D1B9 /* ArkManager+Transactions.swift in Sources */,
+				16CC0F3C1F6DE41400BD1052 /* ArkManager+Api.swift in Sources */,
+				1646DEBB1F7028260021C619 /* Status.swift in Sources */,
+				16CC0F471F6E2B3D00BD1052 /* Network.swift in Sources */,
+				16FBA1E31F7030540011D1B9 /* ArkManager+Accounts.swift in Sources */,
+				16CC0F491F6E2E8000BD1052 /* ArkManager.swift in Sources */,
+				16CC0F511F6F261400BD1052 /* Settings.swift in Sources */,
+				16FBA1EB1F7031820011D1B9 /* ArkManager+Status.swift in Sources */,
+				16CC0F2C1F6DE3FC00BD1052 /* ViewController.swift in Sources */,
+				16CC0F4B1F6EEDC600BD1052 /* Account.swift in Sources */,
+				16FBA1E51F7030E40011D1B9 /* ArkManager+Blocks.swift in Sources */,
+				16CC0F4F1F6F22B400BD1052 /* Block.swift in Sources */,
+				16FBA1E91F7031560011D1B9 /* ArkManager+Peers.swift in Sources */,
+				16FBA1ED1F7031C10011D1B9 /* ArkManager+Ticker.swift in Sources */,
+				1607F47B1F6F55B3006B6751 /* Peer.swift in Sources */,
+				16CC0F451F6E187500BD1052 /* ArkConstants.swift in Sources */,
+				1607F4851F6F7D4C006B6751 /* Ticker.swift in Sources */,
+				16FBA1E71F7031130011D1B9 /* ArkManager+Delegates.swift in Sources */,
+				1607F47F1F6F6E89006B6751 /* Voters.swift in Sources */,
+				1607F4831F6F7870006B6751 /* PeerVersion.swift in Sources */,
+				16CC0F2A1F6DE3FC00BD1052 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		16CC0F2D1F6DE3FC00BD1052 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16CC0F2E1F6DE3FC00BD1052 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		16CC0F321F6DE3FC00BD1052 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16CC0F331F6DE3FC00BD1052 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16CC0F361F6DE3FC00BD1052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		16CC0F371F6DE3FC00BD1052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16CC0F391F6DE3FC00BD1052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G8E5P2X66G;
+				INFOPLIST_FILE = SwiftyArk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Walzy.SwiftyArk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16CC0F3A1F6DE3FC00BD1052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G8E5P2X66G;
+				INFOPLIST_FILE = SwiftyArk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Walzy.SwiftyArk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16CC0F211F6DE3FC00BD1052 /* Build configuration list for PBXProject "SwiftyArk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CC0F361F6DE3FC00BD1052 /* Debug */,
+				16CC0F371F6DE3FC00BD1052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16CC0F381F6DE3FC00BD1052 /* Build configuration list for PBXNativeTarget "SwiftyArk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CC0F391F6DE3FC00BD1052 /* Debug */,
+				16CC0F3A1F6DE3FC00BD1052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16CC0F1E1F6DE3FC00BD1052 /* Project object */;
+}
