@@ -22,16 +22,16 @@ struct ArkConstants {
             static func getPublicKey(_ address: String) -> String {
                 return "accounts/getPublickey?address=\(address)"
             }
+            
+            static func getVotes(_ address: String) -> String {
+                return "accounts/delegates?address=\(address)"
+            }
+            
+            static func getAccount(_ address: String) -> String {
+                return "accounts?address=\(address)"
+            }
         }
 
-        static func getAccount(_ address: String) -> String {
-            return "accounts?address=\(address)"
-        }
-        
-        static func getVotes(_ address: String) -> String {
-            return "accounts/delegates?address=\(address)"
-        }
-        
         static func getBlocks(_ publicKey: String, limit: Int) -> String {
             return "blocks?generatorPublicKey=\(publicKey)&limit=\(limit)&offset=0&orderBy=height:desc"
         }
