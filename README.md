@@ -1,4 +1,4 @@
-<h1 align="center">SwiftySignature</h1>
+<h1 align="center">SwiftyArk</h1>
 
 <p align="center">
     <img src="https://img.shields.io/badge/platform-iOS%208%2B-blue.svg?style=flat" alt="Platform: iOS 8+"/>
