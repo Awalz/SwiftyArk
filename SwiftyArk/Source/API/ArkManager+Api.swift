@@ -13,6 +13,8 @@ internal extension ArkManager {
     
     /// :nodoc:
     internal func makeNetworkRequest(url: URL, completionHandler: @escaping(_ error: Error?, _ data: Data?) -> ()) {
+        
+        print(url.absoluteString)
                 
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = TimeInterval(10)
@@ -43,6 +45,25 @@ internal extension ArkManager {
                     return
                 }
             }
+        }
+    }
+    
+    /// :nodoc:
+    internal func jsonFrom(_ data: Data?) -> [String: AnyObject]? {
+        
+        guard let jsonData = data else {
+            return nil
+        }
+        
+        if let jsonDict = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: AnyObject] {
+            return jsonDict
+        } else if let jsonArray = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? NSArray {
+            guard let jarray = jsonArray else {
+                return nil
+            }
+            return jarray[0] as? [String: AnyObject]
+        } else {
+            return nil
         }
     }
 }

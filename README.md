@@ -82,7 +82,7 @@ manager.delegate("arkpool") { (error, delegate) in
        // approval: 1.52999997,
        // productivity: 99.8499985)
 
-		// Update the session settings with delegate
+       // Update the session settings with delegate
        manager.updateSettings(delegate: arkDelegate)
    }
 }

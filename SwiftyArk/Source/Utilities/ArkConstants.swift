@@ -13,6 +13,16 @@ struct ArkConstants {
     
     
     struct Routes {
+        
+        struct Accounts {
+            static func getBalance(_ address: String) -> String {
+                return "accounts/getBalance?address=\(address)"
+            }
+            
+            static func getPublicKey(_ address: String) -> String {
+                return "accounts/getPublickey?address=\(address)"
+            }
+        }
 
         static func getAccount(_ address: String) -> String {
             return "accounts?address=\(address)"

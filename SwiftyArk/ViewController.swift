@@ -9,19 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // "AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let manager = ArkManager()
-        
-        manager.ticker(currency: .cad) { (error, ticker) in
-            if let canadianTicker = ticker {
-                print(canadianTicker)
+        manager.account(address: "AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL") { (error, account) in
+            if let a = account {
+                manager.updateSettings(account: a)
+                manager.publicKey(completionHandler: { (error, publickey) in
+                    print(error)
+                    print(publickey)
+                })
+                
             }
         }
-        
- 
     }
 }
 
