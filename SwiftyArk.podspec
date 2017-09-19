@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "SwiftyArk"
-  s.version       = "1.0.0"
+  s.version       = "1.0.1"
   s.summary       = "An Ark cryptocurrency framework written in Swift"
   s.description   = "SwiftyArk is a ligthweight Ark cryptocurrency written in Swift. SwiftyArk allows iOS and Mac applications to interact with the Ark Ecosystem"
   s.homepage      = "https://github.com/Awalz/SwiftyArk"
