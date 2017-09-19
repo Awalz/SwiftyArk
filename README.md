@@ -1,4 +1,4 @@
-<img src="SwiftyArkLogo.png"  align="center">
+<img src="SwiftyArkLogo.jpg"  align="center">
 
 <p align="center">
     <img src="https://img.shields.io/badge/platform-iOS%208%2B-blue.svg?style=flat" alt="Platform: iOS 8+"/>
