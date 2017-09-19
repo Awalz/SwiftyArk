@@ -15,10 +15,13 @@ class ViewController: UIViewController {
         
         let manager = ArkManager()
         
-        manager.transaction(id: "5b26edc0ce38c882752e751cd62a0d0e8d256e40736f9d5f52baffd58961da1d") { (error, transaction) in
-            print(error)
-            print(transaction)
+        manager.ticker(currency: .cad) { (error, ticker) in
+            if let canadianTicker = ticker {
+                print(canadianTicker)
+            }
         }
+        
+ 
     }
 }
 
