@@ -1,4 +1,4 @@
-<h1 align="center">SwiftyArk</h1>
+<img src="SwiftyArkLogo.png"  align="center">
 
 <p align="center">
     <img src="https://img.shields.io/badge/platform-iOS%208%2B-blue.svg?style=flat" alt="Platform: iOS 8+"/>
@@ -11,7 +11,7 @@
 
 SwiftyArk is a lightweight framework for the [Ark Ecosystem](https://ark.io). SwiftyArk provides a simple wrapper for accessing Ark accounts, delegates, block, and transaction information.
 
-SwiftyArk's networking component is fully asynchronous and have extensive error handling. SwiftyArk data structures are type-safe and favor immutability. 
+SwiftyArk's networking component is fully asynchronous and have extensive error handling. SwiftyArk data structures are type-safe and favor immutability.
 
 
 ## Requirements
@@ -39,7 +39,7 @@ manager.delegates { (error, delegates) in
         print(arkError.localizedDescription)
            return
     }
-            
+
     if let currentDelegates = delegates {
     	// List of delegates
      }
@@ -55,9 +55,9 @@ With the manager instance, you can access an account:
 manager.account(address: "AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK") { (error, arkAccount) in
   if let account = arkAccount {
        // Account(address: "AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK",
-       // unconfirmedBalance: 16118512.398923151, 
-       // balance: 16118512.398923151, 
-       // publicKey: "02ff171adaef486b7db9fc160b28433d20cf43163d56fd28fee72145f0d5219a4b", 
+       // unconfirmedBalance: 16118512.398923151,
+       // balance: 16118512.398923151,
+       // publicKey: "02ff171adaef486b7db9fc160b28433d20cf43163d56fd28fee72145f0d5219a4b",
        // unconfirmedSignature: Optional(0),
        // secondSignature: Optional(0),
        // multisignatures: Optional([]),
@@ -78,8 +78,8 @@ manager.delegate("arkpool") { (error, delegate) in
        // votes: 1971511.31203289,
        // producedblocks: 37417,
        // missedblocks: 58,
-       // rate: 1, 
-       // approval: 1.52999997, 
+       // rate: 1,
+       // approval: 1.52999997,
        // productivity: 99.8499985)
 
 		// Update the session settings with delegate
@@ -93,21 +93,21 @@ With the stored session credentials, you can easily access acccount information:
 ```swift
  manager.lastBlock { (error, block) in
     if let lastBlock = block {
-    	 // Block(id: "3725283905614253778", 
+    	 // Block(id: "3725283905614253778",
     	 // version: 0,
     	 // timestamp: 2017-09-19 00:48:48 +0000,
-    	 // height: 1948928, 
-    	 // previousBlock: "17490567348134875423", 
+    	 // height: 1948928,
+    	 // previousBlock: "17490567348134875423",
     	 // numberOfTransactions: 0,
     	 // totalAmount: 0.0,
-    	 // totalFee: 0.0, 
-    	 // reward: 2.0, 
-    	 // payloadLength: 0, 
+    	 // totalFee: 0.0,
+    	 // reward: 2.0,
+    	 // payloadLength: 0,
     	 // payloadHash: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    	 // generatorPublicKey: "#{key}", 
+    	 // generatorPublicKey: "#{key}",
     	 // generatorId: "ARAq9nhjCxwpWnGKDgxveAJSijNG8Y6dFQ",
-    	 // blockSignature: "#{signature}", 
-    	 // confirmations: 27, 
+    	 // blockSignature: "#{signature}",
+    	 // confirmations: 27,
     	 // totalForged: 2.0)
     }
  }
@@ -120,16 +120,16 @@ manager.ticker(currency: .cad) { (error, ticker) in
         // Ticker(currency: SwiftyArk.Currency.cad,
         // id: "ark",
         // name: "Ark",
-        // symbol: "ARK", 
-        // rank: 20, 
-        // price: 4.3638476501000003, 
-        // bitcoinPrice: 0.00088648999999999998, 
-        // volume24Hour: 5406421.2865599999, 
-        // marketCap: 426120847.0, 
+        // symbol: "ARK",
+        // rank: 20,
+        // price: 4.3638476501000003,
+        // bitcoinPrice: 0.00088648999999999998,
+        // volume24Hour: 5406421.2865599999,
+        // marketCap: 426120847.0,
         // availableSupply: 97647966.0,
         // totalSupply: 128897966.0,
         // percentChange1h: -3.7999999999999998,
-        // percentChange24h: 1.8700000000000001, 
+        // percentChange24h: 1.8700000000000001,
         // percentChange7d: -1.1100000000000001)
    }
 }
@@ -174,15 +174,3 @@ If you have any questions, requests, or enhancements, feel free to submit a pull
 Ark Address: `AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL`
 
 Bitcoin Address: `16HPSJkzaQWWYyATrAnzCiLCQ2GSJETJbL`
-
-
-
-
-
-
-
-
-
-
-
-
