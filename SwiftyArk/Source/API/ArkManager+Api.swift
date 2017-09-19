@@ -15,7 +15,7 @@ internal extension ArkManager {
     internal func makeNetworkRequest(url: URL, completionHandler: @escaping(_ error: Error?, _ data: Data?) -> ()) {
         
         print(url.absoluteString)
-                
+                        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = TimeInterval(10)
         configuration.timeoutIntervalForResource = TimeInterval(10)

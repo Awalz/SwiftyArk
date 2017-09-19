@@ -30,6 +30,8 @@ struct ArkConstants {
             static func getAccount(_ address: String) -> String {
                 return "accounts?address=\(address)"
             }
+            
+            static let voteForDelegate =  "accounts/delegates"
         }
 
         static func getBlocks(_ publicKey: String, limit: Int) -> String {

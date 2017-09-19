@@ -21,6 +21,9 @@ public enum ApiError: Error {
     
     /// Unable to read response data or unknown issue.
     case unknownError
+    
+    /// Parameters passed to newtorking call were invalid.
+    case parameterError
 }
 
 /**

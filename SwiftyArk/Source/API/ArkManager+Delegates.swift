@@ -106,7 +106,7 @@ public extension ArkManager {
      - Parameter error: Optional error.
      - Parameter delegates: Optional array of `Delegate`.
      */
-    public func delegates(limit: Int, offset: Int, completionHandler: @escaping(_ error: Error?, _ data: [Delegate]?) -> ()) {
+    public func delegates(limit: Int, offset: Int, completionHandler: @escaping(_ error: Error?, _ delegates: [Delegate]?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegates(limit, offset: offset)) else {
             completionHandler(ApiError.urlError, nil)
             return
