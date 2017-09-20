@@ -72,16 +72,16 @@ The manager instance can store a session for easy accessing of an address/delega
 ```swift
 manager.delegate("arkpool") { (error, delegate) in
    if let arkDelegate = delegate {
-       // Delegate(username: "arkpool",
-       // address: "ARAq9nhjCxwpWnGKDgxveAJSijNG8Y6dFQ",
-       // publicKey: "02b1d2ea7c265db66087789f571fceb8cc2b2d89e296ad966efb8ed51855f2ae0b",
-       // votes: 1971511.31203289,
-       // producedblocks: 37417,
-       // missedblocks: 58,
-       // rate: 1,
-       // approval: 1.52999997,
-       // productivity: 99.8499985)
-
+		// Delegate(username: "jarunik", 
+		// address: "Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t", 
+		// publicKey: "02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de",
+		// votes: 1246983.70585494,
+		// producedblocks: 
+		// 28670, 
+		// missedblocks: 61, 
+		// rate: 47, 
+		// approval: 0.970000029, 
+		// productivity: 99.7900009)
        // Update the session settings with delegate
        manager.updateSettings(delegate: arkDelegate)
    }
