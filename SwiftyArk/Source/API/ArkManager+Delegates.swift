@@ -22,20 +22,28 @@ public extension ArkManager {
      */
     public func delegate(_ username: String, completionHandler: @escaping(_ error: Error?, _ delegate: Delegate?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegate(username)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(DelegateResponse.self, from: url) { (error, delegateResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             
             if let delegate = delegateResponse?.delegate {
-                completionHandler(nil, delegate)
+                DispatchQueue.main.async {
+                    completionHandler(nil, delegate)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -86,20 +94,28 @@ public extension ArkManager {
      */
     public func standbyDelegates(completionHandler: @escaping(_ error: Error?, _ delegates: [Delegate]?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegates(51, offset: 51)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(DelegatesResponse.self, from: url) { (error, delegatesResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let delegates = delegatesResponse?.delegates {
                 let sortedDelegates = delegates.sorted {$0.rate < $1.rate}
-                completionHandler(nil, sortedDelegates)
+                DispatchQueue.main.async {
+                    completionHandler(nil, sortedDelegates)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -116,20 +132,28 @@ public extension ArkManager {
      */
     public func delegates(limit: Int, offset: Int, completionHandler: @escaping(_ error: Error?, _ delegates: [Delegate]?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegates(limit, offset: offset)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(DelegatesResponse.self, from: url) { (error, delegatesResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let delegates = delegatesResponse?.delegates {
                 let sortedDelegates = delegates.sorted {$0.rate < $1.rate}
-                completionHandler(nil, sortedDelegates)
+                DispatchQueue.main.async {
+                    completionHandler(nil, sortedDelegates)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -144,24 +168,34 @@ public extension ArkManager {
      */
     public func voters(completionHandler: @escaping(_ error: Error?, _ voters: [Voter]?) -> ()) {
         guard let currentPublicKey = settings?.publicKey else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegateVotes(currentPublicKey)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(VotersResponse.self, from: url) { (error, votersResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let voters = votersResponse?.voters {
-                completionHandler(nil, voters)
+                DispatchQueue.main.async {
+                    completionHandler(nil, voters)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -176,19 +210,27 @@ public extension ArkManager {
      */
     public func voters(publicKey: String, completionHandler: @escaping(_ error: Error?, _ voters: [Voter]?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegateVotes(publicKey)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(VotersResponse.self, from: url) { (error, votersResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let voters = votersResponse?.voters {
-                completionHandler(nil, voters)
+                DispatchQueue.main.async {
+                    completionHandler(nil, voters)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -203,24 +245,34 @@ public extension ArkManager {
      */
     public func forging(completionHandler: @escaping(_ error: Error?, _ forging: Forging?) -> ()) {
         guard let currentPublicKey = settings?.publicKey else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.getForging(currentPublicKey)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(Forging.self, from: url) { (error, forgingResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let forging = forgingResponse {
-                completionHandler(nil, forging)
+                DispatchQueue.main.async {
+                    completionHandler(nil, forging)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -235,19 +287,27 @@ public extension ArkManager {
      */
     public func forging(publicKey: String, completionHandler: @escaping(_ error: Error?, _ forging: Forging?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getForging(publicKey)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(Forging.self, from: url) { (error, forgingResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let forging = forgingResponse {
-                completionHandler(nil, forging)
+                DispatchQueue.main.async {
+                    completionHandler(nil, forging)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
