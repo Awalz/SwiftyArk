@@ -18,13 +18,6 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         let manager = ArkManager()
-        manager.delegate("jarunik") { (error, delegate) in
-            if let a = delegate {
-                print(a)
-            }
-        }
-        
-        
         
         manager.delegates { (error, delegates) in
             if let aError = error {
