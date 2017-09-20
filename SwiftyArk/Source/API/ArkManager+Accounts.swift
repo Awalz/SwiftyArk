@@ -23,34 +23,48 @@ public extension ArkManager {
     public func balance(completionHandler: @escaping(_ error: Error?, _ balance: Double?) -> ()) {
         
         guard let currentAddress = settings?.address else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getBalance(currentAddress)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         makeNetworkRequest(url: url) { (error, data) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             
             guard let json = self.jsonFrom(data) else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
                 return
             }
             
             if let balanceString = json["balance"] as? String {
                 if let balance = Int(balanceString) {
-                    completionHandler(nil, balance.arkIntConversion())
+                    DispatchQueue.main.async {
+                        completionHandler(nil, balance.arkIntConversion())
+                    }
                 } else {
-                    completionHandler(ApiError.unknownError, nil)
+                    DispatchQueue.main.async {
+                        completionHandler(ApiError.unknownError, nil)
+                    }
                 }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -64,29 +78,41 @@ public extension ArkManager {
      */
     public func balance(address: String, completionHandler: @escaping(_ error: Error?, _ balance: Double?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getBalance(address)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         makeNetworkRequest(url: url) { (error, data) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             
             guard let json = self.jsonFrom(data) else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
                 return
             }
             
             if let balanceString = json["balance"] as? String {
                 if let balance = Int(balanceString) {
-                    completionHandler(nil, balance.arkIntConversion())
+                    DispatchQueue.main.async {
+                        completionHandler(nil, balance.arkIntConversion())
+                    }
                 } else {
-                    completionHandler(ApiError.unknownError, nil)
+                    DispatchQueue.main.async {
+                        completionHandler(ApiError.unknownError, nil)
+                    }
                 }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -102,30 +128,42 @@ public extension ArkManager {
     public func publicKey(completionHandler: @escaping(_ error: Error?, _ publicKey: String?) -> ()) {
         
         guard let currentAddress = settings?.address else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getPublicKey(currentAddress)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         makeNetworkRequest(url: url) { (error, data) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             
             guard let json = self.jsonFrom(data) else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
                 return
             }
             
             if let publicKey = json["publicKey"] as? String {
-                completionHandler(nil, publicKey)
+                DispatchQueue.main.async {
+                    completionHandler(nil, publicKey)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -141,25 +179,35 @@ public extension ArkManager {
      */
     public func publicKey(address: String, completionHandler: @escaping(_ error: Error?, _ publicKey: String?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getPublicKey(address)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         makeNetworkRequest(url: url) { (error, data) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             
             guard let json = self.jsonFrom(data) else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
                 return
             }
             
             if let publicKey = json["publicKey"] as? String {
-                completionHandler(nil, publicKey)
+                DispatchQueue.main.async {
+                    completionHandler(nil, publicKey)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }

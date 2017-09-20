@@ -10,20 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // "AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL"
-    
-    // jarunik: 02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de
+    @IBOutlet weak var tableView: UITableView!
+    fileprivate    var delegates: [Delegate] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
         
         let manager = ArkManager()
-        manager.delegate("jarunik") { (error, delegate) in
-            if let a = delegate {
-                print(a)
-
+        manager.delegates { (error, delegates) in
+            if let aError = error {
+                print(aError)
+                return
+            }
+            
+            if let currentDelegates = delegates {
+                self.delegates = currentDelegates
+                self.tableView.reloadData()
             }
         }
     }
+}
+
+// MARK: UITableViewDataSource
+extension ViewController : UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return delegates.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let delegate = delegates[indexPath.row]
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "\(delegate.rate). \(delegate.username)"
+        return cell
+    }
+    
+    
 }
 
