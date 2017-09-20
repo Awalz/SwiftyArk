@@ -47,8 +47,6 @@ manager.delegates { (error, delegates) in
 ```
 
 
-
-
 With the manager instance, you can access an account:
 
 ```swift
@@ -70,7 +68,7 @@ manager.account(address: "AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK") { (error, arkAcco
 The manager instance can store a session for easy accessing of an address/delegate:
 
 ```swift
-manager.delegate("arkpool") { (error, delegate) in
+manager.delegate("jarunik") { (error, delegate) in
    if let arkDelegate = delegate {
 		// Delegate(username: "jarunik", 
 		// address: "Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t", 
@@ -174,3 +172,7 @@ If you have any questions, requests, or enhancements, feel free to submit a pull
 Ark Address: `AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL`
 
 Bitcoin Address: `16HPSJkzaQWWYyATrAnzCiLCQ2GSJETJbL`
+
+## Sponsors
+
+Delegate Sponsor - [Jarunik](https://forum.ark.io/topic/251/jarunik-delegate-proposal-80-voters-20-reserves-10-costs)
