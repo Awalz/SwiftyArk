@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// :nodoc:
 extension Date {
      init(_ arkEpochTime: Int) {
         
@@ -20,6 +21,7 @@ extension Date {
     }
 }
 
+/// :nodoc:
 extension Int {
     func arkIntConversion() -> Double {
         return Double(self) * pow(10, -8)

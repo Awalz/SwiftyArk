@@ -8,12 +8,22 @@
 
 import Foundation
 
+
+/// Ark Forging Data
 public struct Forging : Decodable {
     
+    // MARK: Properties
+    
+    /// Forging Fees
     public let fees    : Double
+    
+    /// Forging rewards
     public let rewards : Double
+    
+    /// Amount forged
     public let forged  : Double
     
+    /// :nodoc:
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -36,6 +46,7 @@ public struct Forging : Decodable {
         forged = forgedInt.arkIntConversion()
     }
     
+    /// :nodoc:
     enum CodingKeys: String, CodingKey {
         case fees, rewards, forged
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// :nodoc:
 public struct VotersResponse : Decodable {
     let success : Bool
     let voters  : [Voter]
@@ -18,12 +19,25 @@ public struct VotersResponse : Decodable {
     }
 }
 
+/// A Voter struct representing a vote for a `Delegate`
+/// `Voter` is a condensced version of `Account`
 public struct Voter : Decodable {
+    
+    // MARK: Properties
+
+    /// Voter account username
     public let username  : String?
+    
+    /// Voter account address
     public let address   : String
+    
+    /// Voter account public key
     public let publicKey : String
+    
+    /// Voter account balance
     public let balance   : Double
     
+    /// :nodoc:
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -38,6 +52,7 @@ public struct Voter : Decodable {
         balance = balanceInt.arkIntConversion()
     }
     
+    /// :nodoc:
     enum CodingKeys: String, CodingKey {
         case username, address, publicKey, balance
     }

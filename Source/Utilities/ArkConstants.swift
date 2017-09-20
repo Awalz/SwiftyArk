@@ -8,18 +8,32 @@
 
 import Foundation
 
+/// :nodoc:
 struct ArkConstants {
     
+    
     struct Routes {
+        
+        struct Accounts {
+            static func getBalance(_ address: String) -> String {
+                return "accounts/getBalance?address=\(address)"
+            }
+            
+            static func getPublicKey(_ address: String) -> String {
+                return "accounts/getPublickey?address=\(address)"
+            }
+            
+            static func getVotes(_ address: String) -> String {
+                return "accounts/delegates?address=\(address)"
+            }
+            
+            static func getAccount(_ address: String) -> String {
+                return "accounts?address=\(address)"
+            }
+            
+            static let voteForDelegate =  "accounts/delegates"
+        }
 
-        static func getAccount(_ address: String) -> String {
-            return "accounts?address=\(address)"
-        }
-        
-        static func getVotes(_ address: String) -> String {
-            return "accounts/delegates?address=\(address)"
-        }
-        
         static func getBlocks(_ publicKey: String, limit: Int) -> String {
             return "blocks?generatorPublicKey=\(publicKey)&limit=\(limit)&offset=0&orderBy=height:desc"
         }
@@ -62,7 +76,7 @@ struct ArkConstants {
             return "transactions/get?id=\(transactionId)"
         }
         
-        static func arkTicker(_ currency: TickerCurrency) -> String {
+        static func arkTicker(_ currency: Currency) -> String {
             return "https://api.coinmarketcap.com/v1/ticker/ark/?convert=\(currency.rawValue)"
         }
     }
