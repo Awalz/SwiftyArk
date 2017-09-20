@@ -58,28 +58,20 @@ public extension ArkManager {
      */
     public func delegates(completionHandler: @escaping(_ error: Error?, _ delegates: [Delegate]?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getDelegates) else {
-            DispatchQueue.main.async {
-                completionHandler(ApiError.urlError, nil)
-            }
+            completionHandler(ApiError.urlError, nil)
             return
         }
         
         fetch(DelegatesResponse.self, from: url) { (error, delegatesResponse) in
             if let aError = error {
-                DispatchQueue.main.async {
-                    completionHandler(aError, nil)
-                }
+                completionHandler(aError, nil)
                 return
             }
             if let delegates = delegatesResponse?.delegates {
                 let sortedDelegates = delegates.sorted {$0.rate < $1.rate}
-                DispatchQueue.main.async {
-                    completionHandler(nil, sortedDelegates)
-                }
+                completionHandler(nil, sortedDelegates)
             } else {
-                DispatchQueue.main.async {
-                    completionHandler(ApiError.unknownError, nil)
-                }
+                completionHandler(ApiError.unknownError, nil)
             }
         }
     }

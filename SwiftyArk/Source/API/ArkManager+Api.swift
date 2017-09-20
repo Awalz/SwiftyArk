@@ -13,7 +13,7 @@ internal extension ArkManager {
     
     /// :nodoc:
     internal func makeNetworkRequest(url: URL, completionHandler: @escaping(_ error: Error?, _ data: Data?) -> ()) {
-                                
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = TimeInterval(10)
         configuration.timeoutIntervalForResource = TimeInterval(10)
@@ -21,10 +21,14 @@ internal extension ArkManager {
         
         session.dataTask(with: url) { (data, response, error) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
-            completionHandler(nil, data)
+            DispatchQueue.main.async {
+                completionHandler(nil, data)
+            }
             }.resume()
     }
     
