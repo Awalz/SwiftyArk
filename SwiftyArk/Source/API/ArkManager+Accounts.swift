@@ -222,25 +222,35 @@ public extension ArkManager {
      */
     public func votes(completionHandler: @escaping(_ error: Error?, _ votes: [Delegate]?) -> ()) {
         guard let currentAddress = settings?.address else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getVotes(currentAddress)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(DelegatesResponse.self, from: url) { (error, delegatesResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let delegates = delegatesResponse?.delegates {
                 let sortedDelegates = delegates.sorted {$0.rate < $1.rate}
-                completionHandler(nil, sortedDelegates)
+                DispatchQueue.main.async {
+                    completionHandler(nil, sortedDelegates)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -255,20 +265,28 @@ public extension ArkManager {
      */
     public func votes(arkAddress: String, completionHandler: @escaping(_ error: Error?, _ votes: [Delegate]?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getVotes(arkAddress)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(DelegatesResponse.self, from: url) { (error, delegatesResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let delegates = delegatesResponse?.delegates {
                 let sortedDelegates = delegates.sorted {$0.rate < $1.rate}
-                completionHandler(nil, sortedDelegates)
+                DispatchQueue.main.async {
+                    completionHandler(nil, sortedDelegates)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -283,24 +301,34 @@ public extension ArkManager {
      */
     public func account(completionHandler: @escaping(_ error: Error?, _ account: Account?) -> ()) {
         guard let currentAddress = settings?.address else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getAccount(currentAddress)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(AccountResponse.self, from: url) { (error, accountResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let account = accountResponse?.account {
-                completionHandler(nil, account)
+                DispatchQueue.main.async {
+                    completionHandler(nil, account)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -315,19 +343,27 @@ public extension ArkManager {
      */
     public func account(address: String, completionHandler: @escaping(_ error: Error?, _ account: Account?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.Accounts.getAccount(address)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(AccountResponse.self, from: url) { (error, accountResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let account = accountResponse?.account {
-                completionHandler(nil, account)
+                DispatchQueue.main.async {
+                    completionHandler(nil, account)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
