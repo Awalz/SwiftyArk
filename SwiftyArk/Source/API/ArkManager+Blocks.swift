@@ -22,19 +22,27 @@ public extension ArkManager {
      */
     public func block(_ blockID: String, completionHandler: @escaping(_ error: Error?, _ block: Block?) -> ()) {
         guard let url = URL(string: urlBase + ArkConstants.Routes.getBlock(blockID)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(BlockResponse.self, from: url) { (error, blockResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let block = blockResponse?.block {
-                completionHandler(nil, block)
+                DispatchQueue.main.async {
+                    completionHandler(nil, block)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -50,24 +58,34 @@ public extension ArkManager {
      */
     public func blocks(limit: Int, completionHandler: @escaping(_ error: Error?, _ blocks: [Block]?) -> ()) {
         guard let currentPublicKey = settings?.publicKey else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.getBlocks(currentPublicKey, limit: limit)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(BlocksResponse.self, from: url) { (error, blocksResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let blocks = blocksResponse?.blocks {
-                completionHandler(nil, blocks)
+                DispatchQueue.main.async {
+                    completionHandler(nil, blocks)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -83,24 +101,34 @@ public extension ArkManager {
      */
     public func blocks(publicKey: Int, limit: Int, completionHandler: @escaping(_ error: Error?, _ blocks: [Block]?) -> ()) {
         guard let currentPublicKey = settings?.publicKey else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.getBlocks(currentPublicKey, limit: limit)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(BlocksResponse.self, from: url) { (error, blocksResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let blocks = blocksResponse?.blocks {
-                completionHandler(nil, blocks)
+                DispatchQueue.main.async {
+                    completionHandler(nil, blocks)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -115,24 +143,34 @@ public extension ArkManager {
      */
     public func lastBlock(completionHandler: @escaping(_ error: Error?, _ block: Block?) -> ()) {
         guard let currentPublicKey = settings?.publicKey else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.getBlocks(currentPublicKey, limit: 1)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(BlocksResponse.self, from: url) { (error, blocksResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let block = blocksResponse?.blocks.first {
-                completionHandler(nil, block)
+                DispatchQueue.main.async {
+                    completionHandler(nil, block)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
@@ -148,24 +186,34 @@ public extension ArkManager {
      */
     public func lastBlock(publicKey: Int, completionHandler: @escaping(_ error: Error?, _ block: Block?) -> ()) {
         guard let currentPublicKey = settings?.publicKey else {
-            completionHandler(ApiError.settingsError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
             return
         }
         
         guard let url = URL(string: urlBase + ArkConstants.Routes.getBlocks(currentPublicKey, limit: 1)) else {
-            completionHandler(ApiError.urlError, nil)
+            DispatchQueue.main.async {
+                completionHandler(ApiError.urlError, nil)
+            }
             return
         }
         
         fetch(BlocksResponse.self, from: url) { (error, blocksResponse) in
             if let aError = error {
-                completionHandler(aError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(aError, nil)
+                }
                 return
             }
             if let block = blocksResponse?.blocks.first {
-                completionHandler(nil, block)
+                DispatchQueue.main.async {
+                    completionHandler(nil, block)
+                }
             } else {
-                completionHandler(ApiError.unknownError, nil)
+                DispatchQueue.main.async {
+                    completionHandler(ApiError.unknownError, nil)
+                }
             }
         }
     }
