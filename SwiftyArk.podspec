@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license       = { :type => 'MIT', :file => 'LICENSE' }
   s.author        = { "Andrew Walz" => "andrewjwalz@gmail.com" }
   s.source        = { :git => "https://github.com/Awalz/SwiftyArk.git", :tag => "#{s.version}" }
-  s.source_files  = 'Source'
+  s.source_files  = 'Source/*
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = "10.10"
 end
