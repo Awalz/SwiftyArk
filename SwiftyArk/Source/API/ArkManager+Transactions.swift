@@ -40,6 +40,60 @@ extension ArkManager {
     }
     
     /**
+     Request a list of  `Transaction` corresponding to the Ark address stored in `settings`.
+     List contains both sent and received transactions, sorted newest to oldest.
+     If settings is set to nil, this function will return `ApiError.settingsError`
+     
+     - Parameter completionHandler: The callback called after attempted network request.
+     - Parameter error: Optional error.
+     - Parameter transactions: Optional list of `Transaction`.
+     */
+    public func myTransactions(completionHandler: @escaping(_ error: Error?, _ transactions: [Transaction]?) -> ()) {
+        guard let currentAddress = settings?.address else {
+            DispatchQueue.main.async {
+                completionHandler(ApiError.settingsError, nil)
+            }
+            return
+        }
+        guard let senderURL = URL(string: urlBase + ArkConstants.Routes.getMySentTransactions(currentAddress)) else {
+            completionHandler(ApiError.urlError, nil)
+            return
+        }
+        
+        guard let recepientURL = URL(string: urlBase + ArkConstants.Routes.getMyReceivedTransactions(currentAddress)) else {
+            completionHandler(ApiError.urlError, nil)
+            return
+        }
+        
+        fetch(TransactionsResponse.self, from: senderURL) { (error, sentResponse) in
+            if let aError = error {
+                completionHandler(aError, nil)
+                return
+            }
+            
+            if let sentTransactions = sentResponse?.transactions {
+                self.fetch(TransactionsResponse.self, from: recepientURL) { (errror, receievedResponse) in
+                    if let aError = error {
+                        completionHandler(aError, nil)
+                        return
+                    }
+                    
+                    if let receivedTransactions = receievedResponse?.transactions {
+                        let allTransactions : [Transaction] = sentTransactions + receivedTransactions
+                        let sortedTransactions = allTransactions.sorted {$0.timestamp > $1.timestamp }
+                        completionHandler(nil, sortedTransactions)
+                    } else {
+                        completionHandler(ApiError.unknownError, nil)
+                    }
+                }
+            } else {
+                completionHandler(ApiError.unknownError, nil)
+            }
+        }
+        
+    }
+    
+    /**
      Request a `Transaction` matching specified id.
      
      - Parameter id: `Transaction` id.

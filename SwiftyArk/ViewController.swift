@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         let manager = ArkManager()
-        
+
         manager.delegates { (error, delegates) in
             if let aError = error {
                 print(aError)

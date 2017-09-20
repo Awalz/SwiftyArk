@@ -13,7 +13,7 @@ internal extension ArkManager {
     
     /// :nodoc:
     internal func makeNetworkRequest(url: URL, completionHandler: @escaping(_ error: Error?, _ data: Data?) -> ()) {
-        
+                
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = TimeInterval(10)
         configuration.timeoutIntervalForResource = TimeInterval(10)

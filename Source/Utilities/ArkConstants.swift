@@ -76,6 +76,15 @@ struct ArkConstants {
             return "transactions/get?id=\(transactionId)"
         }
         
+        static func getMyReceivedTransactions(_ address: String) -> String {
+            return "transactions?recipientId=\(address)"
+        }
+        
+        static func getMySentTransactions(_ address: String) -> String {
+            return "transactions?senderId=\(address)"
+            
+        }
+        
         static func arkTicker(_ currency: Currency) -> String {
             return "https://api.coinmarketcap.com/v1/ticker/ark/?convert=\(currency.rawValue)"
         }
