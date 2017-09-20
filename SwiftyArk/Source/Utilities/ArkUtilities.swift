@@ -27,3 +27,17 @@ extension Int {
         return Double(self) * pow(10, -8)
     }
 }
+
+/// :nodoc:
+extension Array where Element: Equatable {
+    /// Array containing only _unique_ elements.
+    var unique: [Element] {
+        var result: [Element] = []
+        for element in self {
+            if !result.contains(element) {
+                result.append(element)
+            }
+        }
+        return result
+    }
+}

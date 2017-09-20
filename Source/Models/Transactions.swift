@@ -23,7 +23,12 @@ public struct TransactionResponse : Decodable {
 
 
 /// Ark Transaction Struct
-public struct Transaction : Decodable {
+public struct Transaction : Decodable, Equatable {
+    
+    /// :nodoc:
+    static public func ==(lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.id == rhs.id
+    }
     
     // MARK: Properties
     

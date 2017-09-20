@@ -79,7 +79,7 @@ extension ArkManager {
                     }
                     
                     if let receivedTransactions = receievedResponse?.transactions {
-                        let allTransactions : [Transaction] = sentTransactions + receivedTransactions
+                        let allTransactions : [Transaction] = (sentTransactions + receivedTransactions).unique
                         let sortedTransactions = allTransactions.sorted {$0.timestamp > $1.timestamp }
                         completionHandler(nil, sortedTransactions)
                     } else {
