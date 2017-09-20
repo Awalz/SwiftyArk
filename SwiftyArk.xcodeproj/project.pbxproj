@@ -13,6 +13,7 @@
 		1607F4811F6F73FE006B6751 /* Forging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4801F6F73FE006B6751 /* Forging.swift */; };
 		1607F4831F6F7870006B6751 /* PeerVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4821F6F7870006B6751 /* PeerVersion.swift */; };
 		1607F4851F6F7D4C006B6751 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4841F6F7D4C006B6751 /* Ticker.swift */; };
+		162D58C51F731E8C006ECA33 /* Account+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D58C41F731E8C006ECA33 /* Account+iOS.swift */; };
 		1646DEBB1F7028260021C619 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1646DEBA1F7028260021C619 /* Status.swift */; };
 		16CC0F2A1F6DE3FC00BD1052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */; };
 		16CC0F2C1F6DE3FC00BD1052 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F2B1F6DE3FC00BD1052 /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		1607F4801F6F73FE006B6751 /* Forging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forging.swift; sourceTree = "<group>"; };
 		1607F4821F6F7870006B6751 /* PeerVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerVersion.swift; sourceTree = "<group>"; };
 		1607F4841F6F7D4C006B6751 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		162D58C41F731E8C006ECA33 /* Account+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+iOS.swift"; sourceTree = "<group>"; };
 		1646DEBA1F7028260021C619 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		16CC0F261F6DE3FC00BD1052 /* SwiftyArk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyArk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				16CC0F4A1F6EEDC600BD1052 /* Account.swift */,
+				162D58C41F731E8C006ECA33 /* Account+iOS.swift */,
 				16CC0F4E1F6F22B400BD1052 /* Block.swift */,
 				16CC0F3D1F6DE4C100BD1052 /* Delegate.swift */,
 				1607F4801F6F73FE006B6751 /* Forging.swift */,
@@ -258,6 +261,7 @@
 				1607F47B1F6F55B3006B6751 /* Peer.swift in Sources */,
 				16CC0F451F6E187500BD1052 /* ArkConstants.swift in Sources */,
 				1607F4851F6F7D4C006B6751 /* Ticker.swift in Sources */,
+				162D58C51F731E8C006ECA33 /* Account+iOS.swift in Sources */,
 				16FBA1E71F7031130011D1B9 /* ArkManager+Delegates.swift in Sources */,
 				1607F47F1F6F6E89006B6751 /* Voters.swift in Sources */,
 				1607F4831F6F7870006B6751 /* PeerVersion.swift in Sources */,

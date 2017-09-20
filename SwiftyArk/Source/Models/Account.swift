@@ -47,6 +47,8 @@ public struct Account: Decodable {
     /// Unconfirmed Multisgnatures
     public let unconfirmedMultisignatures : [String]?
     
+
+    
     /// :nodoc:
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
