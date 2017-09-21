@@ -23,7 +23,7 @@ public struct TransactionResponse : Decodable {
 
 
 /// Ark Transaction Struct
-public struct Transaction : Decodable, Equatable {
+public struct Transaction : Codable, Equatable {
     
     /// :nodoc:
     static public func ==(lhs: Transaction, rhs: Transaction) -> Bool {
@@ -40,9 +40,6 @@ public struct Transaction : Decodable, Equatable {
     
     /// Transaction type
     public let type            : Int
-    
-    /// Transaction timestamp
-    public let timestamp       : Date
     
     /// Transaction amount
     public let amount          : Double
@@ -68,6 +65,14 @@ public struct Transaction : Decodable, Equatable {
     /// Vender field
     public let vendorField     : String?
     
+    private let timeStampInt : Int
+    
+    /// Transaction timestamp
+    public var timestamp : Date {
+        return Date(timeStampInt)
+    }
+    
+    
     /// :nodoc:
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -82,19 +87,18 @@ public struct Transaction : Decodable, Equatable {
         senderPublicKey = try values.decode(String.self, forKey: .senderPublicKey)
         signature       = try values.decode(String.self, forKey: .signature)
         confirmations   = try values.decode(Int.self,    forKey: .confirmations)
+        timeStampInt    = try values.decode(Int.self,    forKey: .timeStampInt)
         
         if values.contains(.vendorField) == true {
             vendorField = try values.decode(String?.self, forKey: .vendorField)
         } else {
             vendorField = nil
         }
-    
-        let timeStampInt = try values.decode(Int.self, forKey: .timestamp)
-        timestamp = Date(timeStampInt)
     }
     
     /// :nodoc:
     enum CodingKeys: String, CodingKey {
-        case id, blockid, type, timestamp, amount, fee, senderId, recipientId, senderPublicKey, signature, confirmations, vendorField
+        case id, blockid, type, amount, fee, senderId, recipientId, senderPublicKey, signature, confirmations, vendorField
+        case timeStampInt = "timestamp"
     }
 }
