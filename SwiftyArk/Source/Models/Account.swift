@@ -16,7 +16,7 @@ public struct AccountResponse : Decodable {
 
 
 /// Ark Account
-public struct Account: Decodable {
+public struct Account: Codable {
     
     // MARK: Properties
     

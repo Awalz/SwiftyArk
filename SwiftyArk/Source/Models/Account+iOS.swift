@@ -16,20 +16,28 @@ import CoreImage
 public extension Account {
     
     public func qrCode() -> UIImage? {
-        let data = address.data(using: .isoLatin1, allowLossyConversion: false)
-        
-        guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
-            return nil
-        }
+        let dataString = "{\"a\":\"\(address)\"}"
+        let data = dataString.data(using: .isoLatin1, allowLossyConversion: false)
+        let filter = CIFilter(name: "CIQRCodeGenerator")!
         
         filter.setValue(data, forKey: "inputMessage")
-        filter.setValue("Q", forKey: "inputCorrectionLevel")
+        filter.setValue("L", forKey: "inputCorrectionLevel")
         
-        if let outputImage = filter.outputImage {
-            return UIImage(ciImage: outputImage)
-        } else {
-            return nil
-        }
+        let qrcodeCIImage = filter.outputImage!
+        
+        let cgImage = CIContext(options:nil).createCGImage(qrcodeCIImage, from: qrcodeCIImage.extent)
+        UIGraphicsBeginImageContext(CGSize(width: 500.0, height: 500.0))
+        let context = UIGraphicsGetCurrentContext()
+        context!.interpolationQuality = .none
+        
+        context?.draw(cgImage!, in: CGRect(x: 0.0,y: 0.0,width: context!.boundingBoxOfClipPath.width,height: context!.boundingBoxOfClipPath.height))
+        
+        let preImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let qrCodeImage = UIImage(cgImage: (preImage?.cgImage!)!, scale: 1.0/UIScreen.main.scale, orientation: .downMirrored)
+        
+        return qrCodeImage
     }
 }
 #endif

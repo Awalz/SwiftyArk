@@ -16,9 +16,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.isHidden = true
         
         let manager = ArkManager()
-        
+        manager.account(address: "AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL") { (errror, account) in
+            if let a = account {
+                if let qr = a.qrCode() {
+                    let imageView = UIImageView(image: qr)
+                    imageView.frame = CGRect(x: 30.0, y: 30.0, width: 200.0, height: 200.0)
+                    self.view.addSubview(imageView)
+                }
+            }
+        }
+
         manager.delegates { (error, delegates) in
             if let aError = error {
                 print(aError)
