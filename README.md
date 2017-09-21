@@ -9,7 +9,7 @@
 
 ## Overview
 
-SwiftyArk is a lightweight framework for the [Ark Ecosystem](https://ark.io). SwiftyArk provides a simple wrapper for accessing Ark accounts, delegates, block, and transaction information.
+SwiftyArk is a simple, lightweight framework for the [Ark Ecosystem](https://ark.io). SwiftyArk provides a simple wrapper for accessing Ark accounts, delegates, block, and transaction information.
 
 SwiftyArk's networking component is fully asynchronous and have extensive error handling. SwiftyArk data structures are type-safe and favor immutability.
 
