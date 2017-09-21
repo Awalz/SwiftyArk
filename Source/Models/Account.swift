@@ -16,18 +16,12 @@ public struct AccountResponse : Decodable {
 
 
 /// Ark Account
-public struct Account: Decodable {
+public struct Account: Codable {
     
     // MARK: Properties
     
     /// Account Address
     public let address                    : String
-    
-    /// Unconfirmed balance
-    public let unconfirmedBalance         : Double
-    
-    /// Current balance
-    public let balance                    : Double
     
     /// Public key
     public let publicKey                  : String
@@ -48,26 +42,27 @@ public struct Account: Decodable {
     public let unconfirmedMultisignatures : [String]?
     
     /// :nodoc:
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        address = try values.decode(String.self, forKey: .address)
-        
-        guard let unconfirmedBalance = try Int(values.decode(String.self, forKey: .unconfirmedBalanceString)) else {
-            throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.unconfirmedBalanceString], debugDescription: "Expecting Int representation of String"))
+    private let balanceString             : String
+    
+    /// :nodoc:
+    private let unconfirmedBalanceString  : String
+    
+    /// Unconfirmed balance
+    public var unconfirmedBalance : Double {
+        if let balanceInt = Int(unconfirmedBalanceString) {
+            return balanceInt.arkIntConversion()
+        } else {
+            return 0.0
         }
-        self.unconfirmedBalance = unconfirmedBalance.arkIntConversion()
-        
-        guard let balance = try Int(values.decode(String.self, forKey: .balanceString)) else {
-            throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.balanceString], debugDescription: "Expecting Int representation of String"))
+    }
+    
+    /// Current balance
+    public var balance : Double {
+        if let balanceInt = Int(balanceString) {
+            return balanceInt.arkIntConversion()
+        } else {
+            return 0.0
         }
-        self.balance = balance.arkIntConversion()
-        
-        publicKey                  = try values.decode(String.self,   forKey: .publicKey)
-        secondSignature            = try values.decode(Int.self,      forKey: .secondSignature)
-        unconfirmedSignature       = try values.decode(Int.self,      forKey: .unconfirmedSignature)
-        multisignatures            = try values.decode([String].self, forKey: .multisignatures)
-        secondPublicKey            = try values.decode(String?.self,  forKey: .secondPublicKey)
-        unconfirmedMultisignatures = try values.decode([String].self, forKey: .unconfirmedMultisignatures)
     }
     
     /// :nodoc:
