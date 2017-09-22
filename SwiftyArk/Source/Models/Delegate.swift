@@ -22,7 +22,7 @@ public struct DelegatesResponse : Decodable {
 }
 
 /// Ark Delegate
-public struct Delegate : Decodable {
+public struct Delegate : Codable {
     
     // MARK: Properties
     
@@ -34,9 +34,6 @@ public struct Delegate : Decodable {
     
     /// Delegate address
     public let publicKey      : String
-    
-    /// Delegate votes
-    public let votes          : Double
     
     /// Produced blocks
     public let producedblocks : Int
@@ -54,27 +51,19 @@ public struct Delegate : Decodable {
     public let productivity   : Float
     
     /// :nodoc:
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        username        = try values.decode(String.self, forKey: .username)
-        address         = try values.decode(String.self, forKey: .address)
-        publicKey       = try values.decode(String.self, forKey: .publicKey)
-        producedblocks  = try values.decode(Int.self,    forKey: .producedblocks)
-        missedblocks    = try values.decode(Int.self,    forKey: .missedblocks)
-        rate            = try values.decode(Int.self,    forKey: .rate)
-        approval        = try values.decode(Float.self,  forKey: .approval)
-        productivity    = try values.decode(Float.self,  forKey: .productivity)
-        
-        guard let votes = try Int(values.decode(String.self, forKey: .votes)) else {
-            throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.votes], debugDescription: "Expecting Int representation of String"))
+    private let voteString    : String
+
+    /// Delegate votes
+    public var votes : Double {
+        guard let voteInt = Int(voteString) else {
+            return 0.0
         }
-        self.votes = votes.arkIntConversion()
+        return voteInt.arkIntConversion()
     }
     
     /// :nodoc:
     enum CodingKeys: String, CodingKey {
         case username, address, publicKey, producedblocks, missedblocks, rate, approval, productivity
-        case votes = "vote"
+        case voteString = "vote"
     }
 }
