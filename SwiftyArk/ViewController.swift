@@ -16,9 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.isHidden = true
         
         let manager = ArkManager()
-        
+
         manager.delegates { (error, delegates) in
             if let aError = error {
                 print(aError)
