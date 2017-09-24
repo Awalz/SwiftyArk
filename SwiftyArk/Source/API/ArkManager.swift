@@ -87,6 +87,14 @@ public class ArkManager : NSObject {
         self.settings = settings
     }
     
+    /**
+     Remove settings from Manager`.
+     
+     */
+    public func removeSettings() {
+        self.settings = nil
+    }
+    
     // MARK: Network
 
     /**
