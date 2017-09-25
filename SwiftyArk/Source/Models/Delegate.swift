@@ -61,6 +61,11 @@ public struct Delegate : Codable {
         return voteInt.arkIntConversion()
     }
     
+    /// Boolean to indicator if Delegate is in top 51 and forging.
+    public var isForging : Bool {
+        return rate <= 51
+    }
+    
     /// :nodoc:
     enum CodingKeys: String, CodingKey {
         case username, address, publicKey, producedblocks, missedblocks, rate, approval, productivity
