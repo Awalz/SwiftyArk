@@ -90,7 +90,6 @@ extension ArkManager {
                 completionHandler(ApiError.unknownError, nil)
             }
         }
-        
     }
     
     /**
