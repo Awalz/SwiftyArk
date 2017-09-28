@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// :nodoc:
 public struct NewTransactionResponse : Decodable {
     public let success         : Bool
     public let errorMessage    : String?
@@ -19,10 +20,10 @@ public struct NewTransactionResponse : Decodable {
     }
 }
 
-
+/// :nodoc:
 public struct NewTransaction {
     
-    public let recipientId : String
+    public let recipientId     : String
     public let timestamp       : Int
     public let signature       : String
     public let id              : String
