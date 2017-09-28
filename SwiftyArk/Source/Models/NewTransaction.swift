@@ -11,7 +11,7 @@ import Foundation
 public struct NewTransactionResponse : Decodable {
     public let success         : Bool
     public let errorMessage    : String?
-    public let transactionIds  : [String?]
+    public let transactionIds  : [String]?
     
     enum CodingKeys: String, CodingKey {
         case success, transactionIds
@@ -76,6 +76,9 @@ public struct NewTransaction {
         dict.updateValue(timestamp as AnyObject, forKey: "timestamp")
         dict.updateValue(signature as AnyObject, forKey: "signature")
         
+        if let vendorString = vendorField {
+            dict.updateValue(vendorString as AnyObject, forKey: "vendorField")
+        }
         return dict
     }
 }

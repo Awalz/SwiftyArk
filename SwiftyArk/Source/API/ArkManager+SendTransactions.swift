@@ -39,6 +39,8 @@ extension ArkManager {
             let transactions = [transaction.dictionary()]
             params.updateValue(transactions as AnyObject, forKey: "transactions")
             
+            print(params)
+            
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
             } catch let error {
@@ -95,6 +97,7 @@ extension ArkManager {
                 let context = JSContext()
                 context!.evaluateScript(transactionLib)
                 let script = "ark.transaction.createTransaction(\"\(recipientAddress)\", \(amount.arkToInt()), \(vendorFieldString!), \"\(passphrase)\", \(secondPassString!));"
+                print(script)
                 let result = context!.evaluateScript(script)
                 if let object = result {
                     if let transaction = NewTransaction(dictionary: object.toDictionary()) {
