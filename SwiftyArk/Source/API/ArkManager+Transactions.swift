@@ -118,5 +118,24 @@ extension ArkManager {
             }
         }
     }
+    
+    public func getNethash(completionHandler: @escaping(_ error: Error?, _ nethash: String?) -> ()) {
+        guard let url = URL(string: urlBase + ArkConstants.Routes.getNethash) else {
+            completionHandler(ApiError.urlError, nil)
+            return
+        }
+        
+        fetch(Nethash.self, from: url) { (error, nethashResponse) in
+            if let aError = error {
+                completionHandler(aError, nil)
+                return
+            }
+            if let nethash = nethashResponse?.nethash {
+                completionHandler(nil, nethash)
+            } else {
+                completionHandler(ApiError.unknownError, nil)
+            }
+        }
+    }
 }
 

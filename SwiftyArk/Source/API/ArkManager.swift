@@ -41,12 +41,12 @@ public class ArkManager : NSObject {
     /**
      The base URL used for all network calls.
      
-     Default is [NetworkPreset.arknet1](https://node1.arknet.cloud/api/)
+     Default is [NetworkPreset.arknode](https://api.arknode.net/api/)
      
      Cannot be modified directly. Updating is done with `updateNetworkPreset(_:)` or `updateNetwork(_:)'
      
      */
-    public private(set) var urlBase : String = NetworkPreset.arknet1.rawValue
+    public private(set) var urlBase : String = NetworkPreset.arknode.rawValue
     
     /**
      The session settings for easy `Account` and `Delegate` fetching.
