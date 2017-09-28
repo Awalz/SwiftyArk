@@ -15,6 +15,10 @@
 		1607F4851F6F7D4C006B6751 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607F4841F6F7D4C006B6751 /* Ticker.swift */; };
 		162D58C51F731E8C006ECA33 /* Account+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D58C41F731E8C006ECA33 /* Account+iOS.swift */; };
 		1646DEBB1F7028260021C619 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1646DEBA1F7028260021C619 /* Status.swift */; };
+		1656AECA1F7C269E00A7BAC7 /* ark.js in Resources */ = {isa = PBXBuildFile; fileRef = 1656AEC91F7C269E00A7BAC7 /* ark.js */; };
+		1656AECC1F7C2FE000A7BAC7 /* NewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656AECB1F7C2FE000A7BAC7 /* NewTransaction.swift */; };
+		1656AECE1F7D66B900A7BAC7 /* Nethash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656AECD1F7D66B900A7BAC7 /* Nethash.swift */; };
+		166F9F971F7C1C8F007CCFB6 /* ArkManager+SendTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F9F961F7C1C8F007CCFB6 /* ArkManager+SendTransactions.swift */; };
 		16CC0F2A1F6DE3FC00BD1052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */; };
 		16CC0F2C1F6DE3FC00BD1052 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC0F2B1F6DE3FC00BD1052 /* ViewController.swift */; };
 		16CC0F2F1F6DE3FC00BD1052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC0F2D1F6DE3FC00BD1052 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 		1607F4841F6F7D4C006B6751 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		162D58C41F731E8C006ECA33 /* Account+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+iOS.swift"; sourceTree = "<group>"; };
 		1646DEBA1F7028260021C619 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		1656AEC91F7C269E00A7BAC7 /* ark.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ark.js; sourceTree = "<group>"; };
+		1656AECB1F7C2FE000A7BAC7 /* NewTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransaction.swift; sourceTree = "<group>"; };
+		1656AECD1F7D66B900A7BAC7 /* Nethash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nethash.swift; sourceTree = "<group>"; };
+		166F9F961F7C1C8F007CCFB6 /* ArkManager+SendTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArkManager+SendTransactions.swift"; sourceTree = "<group>"; };
 		16CC0F261F6DE3FC00BD1052 /* SwiftyArk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyArk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC0F291F6DE3FC00BD1052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CC0F2B1F6DE3FC00BD1052 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 				16FBA1EA1F7031820011D1B9 /* ArkManager+Status.swift */,
 				16FBA1EC1F7031C10011D1B9 /* ArkManager+Ticker.swift */,
 				16FBA1EE1F7031D70011D1B9 /* ArkManager+Transactions.swift */,
+				166F9F961F7C1C8F007CCFB6 /* ArkManager+SendTransactions.swift */,
 				16CC0F3B1F6DE41400BD1052 /* ArkManager+Api.swift */,
 			);
 			path = API;
@@ -147,7 +156,9 @@
 				16CC0F4E1F6F22B400BD1052 /* Block.swift */,
 				16CC0F3D1F6DE4C100BD1052 /* Delegate.swift */,
 				1607F4801F6F73FE006B6751 /* Forging.swift */,
+				1656AECD1F7D66B900A7BAC7 /* Nethash.swift */,
 				16CC0F461F6E2B3D00BD1052 /* Network.swift */,
+				1656AECB1F7C2FE000A7BAC7 /* NewTransaction.swift */,
 				1607F47A1F6F55B3006B6751 /* Peer.swift */,
 				1607F4821F6F7870006B6751 /* PeerVersion.swift */,
 				16CC0F501F6F261400BD1052 /* Settings.swift */,
@@ -164,6 +175,7 @@
 			children = (
 				16CC0F441F6E187500BD1052 /* ArkConstants.swift */,
 				16CC0F521F6F34A100BD1052 /* ArkUtilities.swift */,
+				1656AEC91F7C269E00A7BAC7 /* ark.js */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -230,6 +242,7 @@
 				16CC0F341F6DE3FC00BD1052 /* LaunchScreen.storyboard in Resources */,
 				16CC0F311F6DE3FC00BD1052 /* Assets.xcassets in Resources */,
 				16CC0F2F1F6DE3FC00BD1052 /* Main.storyboard in Resources */,
+				1656AECA1F7C269E00A7BAC7 /* ark.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166F9F971F7C1C8F007CCFB6 /* ArkManager+SendTransactions.swift in Sources */,
 				16CC0F531F6F34A100BD1052 /* ArkUtilities.swift in Sources */,
 				1607F47D1F6F5EAC006B6751 /* Transactions.swift in Sources */,
 				1607F4811F6F73FE006B6751 /* Forging.swift in Sources */,
@@ -258,6 +272,8 @@
 				16CC0F4F1F6F22B400BD1052 /* Block.swift in Sources */,
 				16FBA1E91F7031560011D1B9 /* ArkManager+Peers.swift in Sources */,
 				16FBA1ED1F7031C10011D1B9 /* ArkManager+Ticker.swift in Sources */,
+				1656AECE1F7D66B900A7BAC7 /* Nethash.swift in Sources */,
+				1656AECC1F7C2FE000A7BAC7 /* NewTransaction.swift in Sources */,
 				1607F47B1F6F55B3006B6751 /* Peer.swift in Sources */,
 				16CC0F451F6E187500BD1052 /* ArkConstants.swift in Sources */,
 				1607F4851F6F7D4C006B6751 /* Ticker.swift in Sources */,

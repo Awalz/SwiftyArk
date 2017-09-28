@@ -11,6 +11,10 @@ import Foundation
 
 /// Network presets for configuring `ArkManager` session
 public enum NetworkPreset: String {
+    
+    /// https://api.arknode.net/api/
+    case arknode = "https://api.arknode.net/api/"
+    
     /// https://node1.arknet.cloud/api/
     case arknet1 = "https://node1.arknet.cloud/api/"
     

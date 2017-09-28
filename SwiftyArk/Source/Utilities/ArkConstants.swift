@@ -11,6 +11,12 @@ import Foundation
 /// :nodoc:
 struct ArkConstants {
     
+    static let mainnetNethash = "6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988"
+    
+    static let mainnetVersion = "1.0.1"
+    
+    static let mainnetPort = 4001
+    
     
     struct Routes {
         
@@ -71,6 +77,10 @@ struct ArkConstants {
         static let peerVersion = "peers/version"
         
         static let getTransactions = "transactions"
+        
+        static let getNethash = "blocks/getNethash"
+        
+        static let sendTransaction = "peer/transactions"
         
         static func getTransaction(_ transactionId: String) -> String {
             return "transactions/get?id=\(transactionId)"
