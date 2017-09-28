@@ -19,6 +19,13 @@ class ViewController: UIViewController {
         tableView.isHidden = true
         
         let manager = ArkManager()
+        
+        manager.createTransaction("AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL", amount: 0.25, passphrase: "benefit spice mansion cage pig adjust lawsuit violin goddess mistake trip baby", secondPassphrase: nil, vendorField: nil) { (error, transaction) in
+            print(error)
+            print(transaction)
+        }
+        
+        
 
         manager.delegates { (error, delegates) in
             if let aError = error {

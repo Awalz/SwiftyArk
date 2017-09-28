@@ -29,6 +29,13 @@ extension Int {
 }
 
 /// :nodoc:
+extension Double {
+    func arkToInt() -> Int {
+        return Int(self * pow(10, 8))
+    }
+}
+
+/// :nodoc:
 extension Array where Element: Equatable {
     /// Array containing only _unique_ elements.
     var unique: [Element] {
