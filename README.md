@@ -110,7 +110,29 @@ With the stored session credentials, you can easily access acccount information:
     }
  }
 ```
-SwiftyArk also has a built in Ark Ticker provided by [CoinMarketCap](https://coinmarketcap.com) with support for [31 currencies]():
+
+`SwiftyArk` supports creating and sending new transctions:
+
+```swift
+ manager.sendTransaction("recipientAddress", amount: 100.0, passphrase: "passphrase", secondPassphrase: "secondPassphrase", vendorField: "my message") { (error, response) in
+     // response
+}
+```
+
+With `SwiftyArk`, you can also vote/unvote for a delegate:
+
+```swift
+manager.delegate("jarunik") { (error, delegate) in
+    if let jarunik = delegate {
+        manager.sendVote(jarunik, passphrase: "passphrase", secondPassphrase: "optionalSecondPassphrase") { (error, response) in
+        	// response
+        }
+    }
+}
+```
+
+
+`SwiftyArk` also has a built in Ark Ticker provided by [CoinMarketCap](https://coinmarketcap.com) with support for **31 currencies**:
 
 ```swift
 manager.ticker(currency: .cad) { (error, ticker) in

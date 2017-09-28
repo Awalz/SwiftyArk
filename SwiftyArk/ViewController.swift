@@ -20,21 +20,6 @@ class ViewController: UIViewController {
         
         let manager = ArkManager()
         
-        manager.delegate("jarunik") { (error, delegate) in
-            if let a = delegate {
-                manager.sendUnvote(a, passphrase: "benefit spice mansion cage pig adjust lawsuit violin goddess mistake trip baby", secondPassphrase: nil) { (error, response) in
-                    print(error)
-                    print(response)
-                }
-            }
-        }
-        
-       /* manager.sendTransaction("AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL", amount: 0.001, passphrase: "benefit spice mansion cage pig adjust lawsuit violin goddess mistake trip baby", secondPassphrase: nil, vendorField: "test") { (error, response) in
-            print(error)
-            print(response)
-        } */
-        
-
         manager.delegates { (error, delegates) in
             if let aError = error {
                 print(aError)
