@@ -111,7 +111,7 @@ With the stored session credentials, you can easily access acccount information:
  }
 ```
 
-`SwiftyArk` supports creating and sending new transctions:
+`SwiftyArk` supports creating and sending new transactions:
 
 ```swift
  manager.sendTransaction("recipientAddress", amount: 100.0, passphrase: "passphrase", secondPassphrase: "secondPassphrase", vendorField: "my message") { (error, response) in
