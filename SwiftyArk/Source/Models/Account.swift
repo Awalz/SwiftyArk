@@ -41,7 +41,6 @@ public struct Account: Codable {
     /// Unconfirmed Multisgnatures
     public let unconfirmedMultisignatures : [String]?
     
-
     
     /// :nodoc:
     private let balanceString             : String

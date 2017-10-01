@@ -13,6 +13,11 @@ extension ArkManager {
     
     public func sendTransaction(_ recipientAddress: String, amount: Double, passphrase: String, secondPassphrase: String?, vendorField: String?, completionHandler: @escaping(_ error: Error?, _ response: NewTransactionResponse?) -> ()) {
         
+        guard isConnectedToNetwork() == true else {
+            completionHandler(ApiError.networkError, nil)
+            return
+        }
+        
         createTransaction(recipientAddress, amount: amount, passphrase: passphrase, secondPassphrase: secondPassphrase, vendorField: vendorField) { (error, newTransaction) in
             if let aError = error {
                 completionHandler(aError, nil)
@@ -74,6 +79,12 @@ extension ArkManager {
     }
     
     public func sendVote(_ delegate: Delegate, passphrase: String, secondPassphrase: String?, completionHandler: @escaping(_ error: Error?, _ response: NewTransactionResponse?) -> ()) {
+        
+        guard isConnectedToNetwork() == true else {
+            completionHandler(ApiError.networkError, nil)
+            return
+        }
+        
         createVote(delegate, passphrase: passphrase, secondPassphrase: secondPassphrase, isUnvote: false) { (error, voteResponse) in
             if let aError = error {
                 completionHandler(aError, nil)
@@ -137,6 +148,12 @@ extension ArkManager {
     }
     
     public func sendUnvote(_ delegate: Delegate, passphrase: String, secondPassphrase: String?, completionHandler: @escaping(_ error: Error?, _ response: NewTransactionResponse?) -> ()) {
+        
+        guard isConnectedToNetwork() == true else {
+            completionHandler(ApiError.networkError, nil)
+            return
+        }
+        
         createVote(delegate, passphrase: passphrase, secondPassphrase: secondPassphrase, isUnvote: true) { (error, voteResponse) in
             if let aError = error {
                 completionHandler(aError, nil)
