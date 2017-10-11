@@ -9,7 +9,7 @@
 
 ## Overview
 
-SwiftyArk is a lightweight framework for the [Ark Ecosystem](https://ark.io). SwiftyArk provides a simple wrapper for accessing Ark accounts, delegates, block, and transaction information.
+SwiftyArk is a simple, lightweight framework for the [Ark Ecosystem](https://ark.io). SwiftyArk provides a simple wrapper for accessing Ark accounts, delegates, block, and transaction information.
 
 SwiftyArk's networking component is fully asynchronous and have extensive error handling. SwiftyArk data structures are type-safe and favor immutability.
 
@@ -47,8 +47,6 @@ manager.delegates { (error, delegates) in
 ```
 
 
-
-
 With the manager instance, you can access an account:
 
 ```swift
@@ -70,18 +68,18 @@ manager.account(address: "AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK") { (error, arkAcco
 The manager instance can store a session for easy accessing of an address/delegate:
 
 ```swift
-manager.delegate("arkpool") { (error, delegate) in
+manager.delegate("jarunik") { (error, delegate) in
    if let arkDelegate = delegate {
-       // Delegate(username: "arkpool",
-       // address: "ARAq9nhjCxwpWnGKDgxveAJSijNG8Y6dFQ",
-       // publicKey: "02b1d2ea7c265db66087789f571fceb8cc2b2d89e296ad966efb8ed51855f2ae0b",
-       // votes: 1971511.31203289,
-       // producedblocks: 37417,
-       // missedblocks: 58,
-       // rate: 1,
-       // approval: 1.52999997,
-       // productivity: 99.8499985)
-
+		// Delegate(username: "jarunik", 
+		// address: "Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t", 
+		// publicKey: "02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de",
+		// votes: 1246983.70585494,
+		// producedblocks: 
+		// 28670, 
+		// missedblocks: 61, 
+		// rate: 47, 
+		// approval: 0.970000029, 
+		// productivity: 99.7900009)
        // Update the session settings with delegate
        manager.updateSettings(delegate: arkDelegate)
    }
@@ -112,7 +110,29 @@ With the stored session credentials, you can easily access acccount information:
     }
  }
 ```
-SwiftyArk also has a built in Ark Ticker provided by [CoinMarketCap](https://coinmarketcap.com) with support for [31 currencies]():
+
+`SwiftyArk` supports creating and sending new transactions:
+
+```swift
+ manager.sendTransaction("recipientAddress", amount: 100.0, passphrase: "passphrase", secondPassphrase: "secondPassphrase", vendorField: "my message") { (error, response) in
+     // response
+}
+```
+
+With `SwiftyArk`, you can also vote/unvote for a delegate:
+
+```swift
+manager.delegate("jarunik") { (error, delegate) in
+    if let jarunik = delegate {
+        manager.sendVote(jarunik, passphrase: "passphrase", secondPassphrase: "optionalSecondPassphrase") { (error, response) in
+        	// response
+        }
+    }
+}
+```
+
+
+`SwiftyArk` also has a built in Ark Ticker provided by [CoinMarketCap](https://coinmarketcap.com) with support for **31 currencies**:
 
 ```swift
 manager.ticker(currency: .cad) { (error, ticker) in
@@ -174,3 +194,7 @@ If you have any questions, requests, or enhancements, feel free to submit a pull
 Ark Address: `AYdHH5TsZF796pv7gxVU1tK6DLkUxMK1VL`
 
 Bitcoin Address: `16HPSJkzaQWWYyATrAnzCiLCQ2GSJETJbL`
+
+## Sponsors
+
+Delegate Sponsor - [Jarunik](https://forum.ark.io/topic/251/jarunik-delegate-proposal-80-voters-20-reserves-10-costs)

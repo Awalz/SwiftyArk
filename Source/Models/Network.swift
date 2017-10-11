@@ -8,23 +8,36 @@
 
 import Foundation
 
+
+/// Network presets for configuring `ArkManager` session
 public enum NetworkPreset: String {
+    
+    /// https://api.arknode.net/api/
+    case arknode = "https://api.arknode.net/api/"
+    
+    /// https://node1.arknet.cloud/api/
     case arknet1 = "https://node1.arknet.cloud/api/"
+    
+    /// https://node2.arknet.cloud/api/
     case arknet2 = "https://node2.arknet.cloud/api/"
 }
 
+/// Network struct to store custom server settings
 public struct Network {
+    
+    // MARK: Properties
+    
+    /// Server IP address
     public let ip    : String
+    
+    /// Server port
     public let port  : Int
+    
+    /// Server SSL settings
     public let isSSL : Bool
     
-    init(_ ip: String, port: Int, isSSL: Bool) {
-        self.ip    = ip
-        self.port  = port
-        self.isSSL = isSSL
-    }
-    
-    var urlBase: String {
+    /// Computed base url string
+    public var urlBase: String {
         if isSSL == true {
             let firstHalf  = "https://" + ip + ":"
             let secondHalf = String(port) + "/api/"
@@ -34,5 +47,20 @@ public struct Network {
             let secondHalf = String(port) + "/api/"
             return firstHalf + secondHalf
         }
+    }
+    
+    // MARK: Initializers
+
+    /**
+     Public `Network` initializer
+     
+     - Parameter ip: Server IP address.
+     - Parameter port: Server port
+     - Parameter isSSL: OServer SSL settings.
+     */
+    public init(_ ip: String, port: Int, isSSL: Bool) {
+        self.ip    = ip
+        self.port  = port
+        self.isSSL = isSSL
     }
 }

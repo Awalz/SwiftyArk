@@ -8,46 +8,65 @@
 
 import Foundation
 
-
+/// :nodoc:
 public struct AccountResponse : Decodable {
     let success : Bool
     let account : Account
 }
 
-public struct Account: Decodable {
+
+/// Ark Account
+public struct Account: Codable {
     
+    // MARK: Properties
+    
+    /// Account Address
     public let address                    : String
-    public let unconfirmedBalance         : Int
-    public let balance                    : Int
+    
+    /// Public key
     public let publicKey                  : String
+    
+    /// Unconfirmed signature
     public let unconfirmedSignature       : Int?
+    
+    /// Second Signature
     public let secondSignature            : Int?
+    
+    /// Multisignatures
     public let multisignatures            : [String]?
+    
+    /// Second public key
     public let secondPublicKey            : String?
+    
+    /// Unconfirmed Multisgnatures
     public let unconfirmedMultisignatures : [String]?
     
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        address = try values.decode(String.self, forKey: .address)
-        
-        guard let unconfirmedBalance = try Int(values.decode(String.self, forKey: .unconfirmedBalanceString)) else {
-            throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.unconfirmedBalanceString], debugDescription: "Expecting Int representation of String"))
+    
+    /// :nodoc:
+    private let balanceString             : String
+    
+    /// :nodoc:
+    private let unconfirmedBalanceString  : String
+    
+    /// Unconfirmed balance
+    public var unconfirmedBalance : Double {
+        if let balanceInt = Int(unconfirmedBalanceString) {
+            return balanceInt.arkIntConversion()
+        } else {
+            return 0.0
         }
-        self.unconfirmedBalance = unconfirmedBalance
-        
-        guard let balance = try Int(values.decode(String.self, forKey: .balanceString)) else {
-            throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.balanceString], debugDescription: "Expecting Int representation of String"))
-        }
-        self.balance = balance
-        
-        publicKey                  = try values.decode(String.self,   forKey: .publicKey)
-        secondSignature            = try values.decode(Int.self,      forKey: .secondSignature)
-        unconfirmedSignature       = try values.decode(Int.self,      forKey: .unconfirmedSignature)
-        multisignatures            = try values.decode([String].self, forKey: .multisignatures)
-        secondPublicKey            = try values.decode(String?.self,  forKey: .secondPublicKey)
-        unconfirmedMultisignatures = try values.decode([String].self, forKey: .unconfirmedMultisignatures)
     }
     
+    /// Current balance
+    public var balance : Double {
+        if let balanceInt = Int(balanceString) {
+            return balanceInt.arkIntConversion()
+        } else {
+            return 0.0
+        }
+    }
+    
+    /// :nodoc:
     enum CodingKeys: String, CodingKey {
         case address, publicKey, secondPublicKey, unconfirmedSignature, multisignatures, secondSignature
         case balanceString              = "balance"

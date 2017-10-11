@@ -21,6 +21,9 @@ public enum ApiError: Error {
     
     /// Unable to read response data or unknown issue.
     case unknownError
+    
+    /// Parameters passed to newtorking call were invalid.
+    case parameterError
 }
 
 /**
@@ -38,12 +41,12 @@ public class ArkManager : NSObject {
     /**
      The base URL used for all network calls.
      
-     Default is [NetworkPreset.arknet1](https://node1.arknet.cloud/api/)
+     Default is [NetworkPreset.arknode](https://api.arknode.net/api/)
      
      Cannot be modified directly. Updating is done with `updateNetworkPreset(_:)` or `updateNetwork(_:)'
      
      */
-    public private(set) var urlBase : String = NetworkPreset.arknet1.rawValue
+    public private(set) var urlBase : String = NetworkPreset.arknode.rawValue
     
     /**
      The session settings for easy `Account` and `Delegate` fetching.
@@ -82,6 +85,14 @@ public class ArkManager : NSObject {
      */
     public func updateSettings(settings: Settings) {
         self.settings = settings
+    }
+    
+    /**
+     Remove settings from Manager`.
+     
+     */
+    public func removeSettings() {
+        self.settings = nil
     }
     
     // MARK: Network

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// :nodoc:
 extension Date {
      init(_ arkEpochTime: Int) {
         
@@ -20,8 +21,30 @@ extension Date {
     }
 }
 
+/// :nodoc:
 extension Int {
     func arkIntConversion() -> Double {
         return Double(self) * pow(10, -8)
+    }
+}
+
+/// :nodoc:
+extension Double {
+    func arkToInt() -> Int {
+        return Int(self * pow(10, 8))
+    }
+}
+
+/// :nodoc:
+extension Array where Element: Equatable {
+    /// Array containing only _unique_ elements.
+    var unique: [Element] {
+        var result: [Element] = []
+        for element in self {
+            if !result.contains(element) {
+                result.append(element)
+            }
+        }
+        return result
     }
 }

@@ -8,18 +8,38 @@
 
 import Foundation
 
+/// :nodoc:
 struct ArkConstants {
     
+    static let mainnetNethash = "6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988"
+    
+    static let mainnetVersion = "1.0.1"
+    
+    static let mainnetPort = 4001
+    
+    
     struct Routes {
+        
+        struct Accounts {
+            static func getBalance(_ address: String) -> String {
+                return "accounts/getBalance?address=\(address)"
+            }
+            
+            static func getPublicKey(_ address: String) -> String {
+                return "accounts/getPublickey?address=\(address)"
+            }
+            
+            static func getVotes(_ address: String) -> String {
+                return "accounts/delegates?address=\(address)"
+            }
+            
+            static func getAccount(_ address: String) -> String {
+                return "accounts?address=\(address)"
+            }
+            
+            static let voteForDelegate =  "accounts/delegates"
+        }
 
-        static func getAccount(_ address: String) -> String {
-            return "accounts?address=\(address)"
-        }
-        
-        static func getVotes(_ address: String) -> String {
-            return "accounts/delegates?address=\(address)"
-        }
-        
         static func getBlocks(_ publicKey: String, limit: Int) -> String {
             return "blocks?generatorPublicKey=\(publicKey)&limit=\(limit)&offset=0&orderBy=height:desc"
         }
@@ -58,11 +78,24 @@ struct ArkConstants {
         
         static let getTransactions = "transactions"
         
+        static let getNethash = "blocks/getNethash"
+        
+        static let sendTransaction = "peer/transactions"
+        
         static func getTransaction(_ transactionId: String) -> String {
             return "transactions/get?id=\(transactionId)"
         }
         
-        static func arkTicker(_ currency: TickerCurrency) -> String {
+        static func getMyReceivedTransactions(_ address: String) -> String {
+            return "transactions?recipientId=\(address)"
+        }
+        
+        static func getMySentTransactions(_ address: String) -> String {
+            return "transactions?senderId=\(address)"
+            
+        }
+        
+        static func arkTicker(_ currency: Currency) -> String {
             return "https://api.coinmarketcap.com/v1/ticker/ark/?convert=\(currency.rawValue)"
         }
     }

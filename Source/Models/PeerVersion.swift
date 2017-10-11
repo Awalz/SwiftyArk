@@ -8,7 +8,15 @@
 
 import Foundation
 
+
+/// Peer Version Struct
 public struct PeerVersion: Decodable {
+    
+    // MARK: Properties
+    
+    /// Peer version
     public let version : String
+    
+    /// Peer build
     public let build   : String
 }

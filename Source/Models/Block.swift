@@ -8,34 +8,73 @@
 
 import Foundation
 
-
+/// :nodoc:
 public struct BlockResponse : Decodable {
     let success : Bool
     let block   : Block
 }
+
+/// :nodoc:
 public struct BlocksResponse : Decodable {
     let success : Bool
     let blocks  : [Block]
 }
 
+/// Ark Block
 public struct Block : Decodable {
+    
+    // MARK: Properties
+    
+    /// Block Id
     public let id                   : String
+    
+    /// Block Version
     public let version              : Int
+    
+    /// Block Timestamp
     public let timestamp            : Date
+    
+    /// Block Height
     public let height               : Int
+    
+    /// Previous block
     public let previousBlock        : String
+    
+    /// Number of transactions
     public let numberOfTransactions : Int
+    
+    /// Total Amount
     public let totalAmount          : Double
+    
+    /// Total Fee
     public let totalFee             : Double
+    
+    /// Reward
     public let reward               : Double
+    
+    /// Payload Length
     public let payloadLength        : Int
+    
+    /// Payload Hash
     public let payloadHash          : String
+    
+    /// Generator Public Key
     public let generatorPublicKey   : String
+    
+    /// Generator ID
     public let generatorId          : String
+    
+    /// Block Signature
     public let blockSignature       : String
+    
+    /// Number of confirmations
     public let confirmations        : Int
+    
+    /// Total Forged
     public let totalForged          : Double
     
+    
+    /// :nodoc:
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -65,6 +104,7 @@ public struct Block : Decodable {
         timestamp = Date(timeStampInt)
     }
     
+    /// :nodoc:
     enum CodingKeys: String, CodingKey {
         case id, version, timestamp, height, previousBlock, numberOfTransactions, totalAmount, totalFee, reward, payloadLength, payloadHash, generatorPublicKey, generatorId, blockSignature, confirmations, totalForged
     }

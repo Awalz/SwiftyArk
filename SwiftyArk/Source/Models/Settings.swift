@@ -27,7 +27,7 @@ public struct Settings {
      - Parameter address: Session address.
      - Parameter publicKey: Session public key
      */
-    public init(_ address: String, publicKey: String) {
+    public init(address: String, publicKey: String) {
         self.address   = address
         self.publicKey = publicKey
     }

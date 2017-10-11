@@ -8,9 +8,18 @@
 
 import Foundation
 
+
+/// Ark Server Sync Status
 public struct Status : Decodable {
     
+    // MARK: Properties
+    
+    /// Server ID
     public let id      : String
+    
+    /// Stores whether server is syncing
     public let syncing : Bool
+    
+    /// Height
     public let height  : Int
 }

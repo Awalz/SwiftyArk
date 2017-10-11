@@ -8,76 +8,153 @@
 
 import Foundation
 
-public struct ArkTickerResponse : Decodable {
-   /* public let success: Bool
-    public let ticker : [ArkTicker]
+/// Currency options for `ArkTicker`
+public enum Currency : String {
     
-   public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        print(values.allKeys)
-        
-        success = try values.decode(Bool.self, forKey: .success)
-        ticker  = try values.decode([ArkTicker].self,  forKey: .ticker)
-    }
-        
-    enum CodingKeys: String, CodingKey {
-        case success
-        case ticker = "result"
-    } */
-}
-
-public enum TickerCurrency : String {
+    /// Australian Dollar
     case aud = "AUD"
+    
+    /// Brazilian Real
     case brl = "BRL"
+    
+    /// Canadian Dollar
     case cad = "CAD"
+    
+    /// Swiss Franc
     case chf = "CHF"
+    
+    /// Chilean Peso
     case clp = "CLP"
+    
+    /// Yuan Renminbi
     case cny = "CNY"
+    
+    /// Czech Koruna
     case czk = "CZK"
+    
+    /// Danish Krone
     case dkk = "DKK"
+    
+    /// Euro
     case eur = "EUR"
+    
+    /// British Pound Sterling
     case gbp = "GBP"
+    
+    /// Hong Kong Dollar
     case hkd = "HKD"
+    
+    /// Hungarian Forint
     case huf = "HUF"
+    
+    /// Indonesian Rupiah
     case idr = "IDR"
+    
+    /// Israeli New Shekel
     case ils = "ILS"
+    
+    /// Indian Rupee
     case inr = "INR"
+    
+    /// Japanese Yen
     case jpy = "JPY"
+    
+    /// Korean Won
     case krw = "KRW"
+    
+    /// Mexican Nuevo Peso
     case mxn = "MXN"
+    
+    /// Malaysian Ringgit
     case myr = "MYR"
+    
+    ///Norwegian Krone
     case nok = "NOK"
+    
+    /// New Zealand Dollar
     case nzd = "NZD"
+    
+    /// Philippine Peso
     case php = "PHP"
+    
+    /// Pakistan Rupee
     case pkr = "PKR"
+    
+    /// Polish Zloty
     case pln = "PLN"
+    
+    /// Russian Ruble
     case rub = "RUB"
+    
+    /// Swedish Krona
     case sek = "SEK"
+    
+    /// Singapore Dollar
     case sgd = "SGD"
+    
+    /// Thai Baht
     case thb = "THB"
+    
+    /// Taiwan Dollar
     case twd = "TWD"
+    
+    /// US Dollar
     case usd = "USD"
+    
+    /// South African Rand
     case zar = "ZAR"
 }
 
-public struct ArkTicker {
-    public let currency         : TickerCurrency
+
+///  Ark Ticker struct. Initialized with `Currency` options
+public struct Ticker {
+    
+    // MARK: Properties
+    
+    /// Ticker currency
+    public let currency         : Currency
+    
+    /// Ticker ID
     public let id               : String
+    
+    /// Ticker name
     public let name             : String
+    
+    /// Ticker symbol
     public let symbol           : String
+    
+    /// Ark rank
     public let rank             : Int
+    
+    /// Ark price in specified currency
     public let price            : Double
+    
+    /// Ark price compared to bitcoin
     public let bitcoinPrice     : Double
+    
+    /// Ark 24 hour volume in specified currency
     public let volume24Hour     : Double
+    
+    /// Ark market cap in specified currency
     public let marketCap        : Double
+    
+    /// Current available supply of Ark
     public let availableSupply  : Double
+    
+    /// Total supply of ark
     public let totalSupply      : Double
+    
+    /// Ark percentage change in last hour
     public let percentChange1h  : Double
+    
+    /// Ark percentage change in last 24 hours
     public let percentChange24h : Double
+    
+    /// Ark percentage change in last 7 days
     public let percentChange7d  : Double
 
-    init?(currency: TickerCurrency, data: Data) {
+    /// :nodoc:
+    init?(currency: Currency, data: Data) {
         
         guard let jsonArray = try? JSONSerialization.jsonObject(with: data, options: []) as? NSArray else {
             return nil
@@ -92,7 +169,7 @@ public struct ArkTicker {
         }
                 
         self.currency = currency
-        let currencyKeys = ArkTicker.getCurrencyKeys(currency)
+        let currencyKeys = Ticker.getCurrencyKeys(currency)
         
         guard let id               = json["id"] as? String,
               let name             = json["name"] as? String,
@@ -139,7 +216,8 @@ public struct ArkTicker {
         self.marketCap        = marketCapFloat 
     }
     
-    static private func getCurrencyKeys(_ currency: TickerCurrency) -> (priceKey: String, volume24Hour: String, marketCap: String) {
+    /// :nodoc:
+    static private func getCurrencyKeys(_ currency: Currency) -> (priceKey: String, volume24Hour: String, marketCap: String) {
         switch currency {
         case .aud:
             return ("price_aud", "24h_volume_aud", "market_cap_aud")
