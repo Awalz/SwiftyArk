@@ -7,6 +7,12 @@
     <img src="https://img.shields.io/badge/license-MIT-BE90D4.svg?style=flat)](http://creativecommons.org/licenses/by-sa/4.0/t" alt="License: MIR" /> <br><br>
 </p>
 
+# Introduction
+
+<p align="center">
+    <a href="https://arkcommunity.fund/"><img src="https://arkcommunity.fund/media-kit/funded/banner.png" /></a>
+</p>
+
 ## Overview
 
 SwiftyArk is a simple, lightweight framework for the [Ark Ecosystem](https://ark.io). SwiftyArk provides a simple wrapper for accessing Ark accounts, delegates, block, and transaction information.
